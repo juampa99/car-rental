@@ -1,0 +1,27 @@
+{
+  "name": "car-rental",
+  "version": "1.0.0",
+  "description": "Aplicacion de renta de autos hecho con Nodejs, sqlite3 y nunjucks",
+  "main": "/src/app.js",
+  "dependencies": {
+    "bulma": "^0.9.1",
+    "express": "^4.17.1",
+    "jsdoc": "^3.6.6",
+    "nunjucks": "^3.2.2",
+    "rsdi": "^1.0.10",
+    "sequelize": "^6.3.5",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.9",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "author": "Juan Pablo Allende",
+  "license": "MIT"
+}

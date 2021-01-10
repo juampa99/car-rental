@@ -1,0 +1,43 @@
+{% extends '../../views/index.njk' %}
+
+{% block body %}
+<div class="container div-table-container">
+    <div class="table-container">
+        <table class="table is-bordered car-list">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Año</th>
+                    <th>KMS</th>
+                    <th>Color</th>
+                    <th>Aire Acondicionado</th>
+                    <th>Pasajeros</th>
+                    <th>Automatico</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for car in data.cars %}
+                <tr>
+                    <th>{{ car.id }}</th>
+                    <th>{{ car.marca }}</th>
+                    <th>{{ car.modelo }}</th>
+                    <th>{{ car.anio }}</th>
+                    <th>{{ car.kms }}</th>
+                    <th>{{ car.color }}</th>
+                    <th>{{ car.aire_acondicionado }}</th>
+                    <th>{{ car.pasajeros }}</th>
+                    <th>{{ car.automatico }}</th>
+                    <th>
+                        <i class="fas fa-edit"></i>
+                    </th>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+</div>
+{% endblock %}

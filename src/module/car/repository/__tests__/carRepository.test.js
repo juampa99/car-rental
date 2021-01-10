@@ -96,4 +96,7 @@ test('Actualiza un auto cuando se guarda uno con el mismo ID', async () => {
     expect(firstCar.marca).toEqual('Toyota');
 })
 
-// Faltan tests
+test('Hace un getAll() de una base de datos vacia', async ()=>{
+    let vacio = await repository.getAll();
+    expect(vacio).toHaveLength(0);
+})

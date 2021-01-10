@@ -1,16 +1,26 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
+const path = require('path');
 
 const app = express();
 const PORT = 8080;
 
-nunjucks.configure('src/views/',{
-    express: app
+const configureDI = require('./config/DI');
+const carModule = require('./module/car/module');
+
+app.use(express.urlencoded({ extended: true }));
+app.use('/', express.static('public'));
+
+nunjucks.configure('src/module/',{
+    express: app,
+    autoescape: true
 });
 
-app.get('/', (req, res)=>{
-    res.render("index.njk");
-})
+const container = configureDI(app);
 
-app.listen(PORT);
-console.log('Listening on port ' + PORT);
+carModule.init(app, container);
+
+const carController = container.get('CarController');
+app.get('/', carController.index.bind(carController));
+
+app.listen(PORT, () => console.log('Listening on port ' + PORT));

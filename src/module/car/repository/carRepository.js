@@ -31,7 +31,12 @@ module.exports = class CarRepository {
      * @returns {Promise<Array<import('../entity/car')>>}
      * */
     async getAll() {
-        return (await this.carModel.findAll()).map(fromModelToEntity);
+        let cars = await this.carModel.findAll();
+        if(cars)
+            cars = cars.map(fromModelToEntity);
+        else
+            cars = [];
+        return cars;
     }
 
     /**

@@ -1,6 +1,5 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
-const path = require('path');
 
 const app = express();
 const PORT = 8080;
@@ -9,6 +8,7 @@ const configureDI = require('./config/DI');
 const carModule = require('./module/car/module');
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use('/', express.static('public'));
 
 nunjucks.configure('src/module/',{

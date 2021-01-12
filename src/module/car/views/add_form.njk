@@ -1,0 +1,83 @@
+{% extends '../../views/index.njk' %}
+
+{% block body %}
+
+<div class="container form-container">
+
+    <form method="POST" action="/car/submit" enctype="application/x-www-form-urlencoded">
+        <div class="field div-marca">
+            <label class="label">Marca</label>
+            <div class="control">
+                <input name="marca" class="input" type="text" placeholder="Toyota, Mitsubishi, etc...">
+            </div>
+        </div>
+
+        <div class="field div-modelo">
+            <label class="label">Modelo</label>
+            <div class="control">
+                <input name="modelo" class="input" type="text" placeholder="Descapotable, familiar,etc...">
+            </div>
+        </div>
+
+        <div class="container div-anio-kms">
+            <div class="field div-anio">
+                <label class="label">Año</label>
+                <div class="control">
+                    <input name="anio" class="input" type="number" min="1900" max="2021">
+                </div>
+            </div>
+
+            <div class="field div-kms">
+                <label class="label">Kilometros</label>
+                <div class="control">
+                    <input name="kms" class="input" type="number" min="0">
+                </div>
+            </div>
+
+            <div class="field div-pasajeros">
+                <label class="label">Pasajeros</label>
+                <div class="control">
+                    <input name="pasajeros" class="input" type="number">
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Color</label>
+            <div class="control">
+                <input name="color" class="input" type="text">
+            </div>
+        </div>
+
+        <label class="label">Extras</label>
+        <div class="container div-aire-auto">
+
+            <div class="field div-aire">
+                <div class="control">
+                    <input name="aire_acondicionado" class="switch" type="checkbox">
+                    Aire Acondicionado
+                </div>
+            </div>
+
+            <div class="field div-auto">
+                <div class="control">
+                    <input name="automatico" class="checkbox" type="checkbox">
+                    Automatico
+                </div>
+            </div>
+
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <input class="button" type="submit" value="Submit"/>
+            </div>
+            <div class="control">
+                <button class="button is-link is-light">Cancel</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}

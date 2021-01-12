@@ -6,9 +6,9 @@ module.exports = class Car {
      * @param {number} anio
      * @param {number} kms
      * @param {string} color
-     * @param {boolean} aire_acondicionado
+     * @param {string} aire_acondicionado
      * @param {number} pasajeros
-     * @param {boolean} automatico
+     * @param {string} automatico
      * */
     constructor({
             id,

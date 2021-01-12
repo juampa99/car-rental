@@ -11,6 +11,9 @@ function fromDataToEntity({
     pasajeros,
     automatico
 }) {
+    let autom = automatico && automatico === 'on' ? 'Si' : 'No';
+    let aire = aire_acondicionado && aire_acondicionado === 'on' ? 'Si' : 'No';
+
     return new Car({
         id,
         marca,
@@ -18,9 +21,9 @@ function fromDataToEntity({
         anio,
         kms,
         color,
-        aire_acondicionado,
+        aire_acondicionado: aire,
         pasajeros,
-        automatico
+        automatico: autom
     })
 }
 

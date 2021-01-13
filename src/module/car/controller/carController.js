@@ -14,6 +14,7 @@ module.exports = class CarController {
      * */
     configureRoutes(app) {
         app.get(`${this.ROUTE_BASE}/`, this.index.bind(this));
+        app.get(`${this.ROUTE_BASE}/add/:id`, this.addForm.bind(this));
         app.get(`${this.ROUTE_BASE}/add`, this.addForm.bind(this));
         app.post(`${this.ROUTE_BASE}/submit`, this.submit.bind(this));
         app.get(`${this.ROUTE_BASE}/delete/:id`, this.delete.bind(this));
@@ -33,7 +34,11 @@ module.exports = class CarController {
      * @param {import('express').Response} res
      * */
     async addForm(req, res) {
-        res.render('./car/views/add_form.njk');
+        let car = {};
+        if(req.params && req.params.id)
+            car = await this.carService.getById(req.params.id)
+
+        res.render('./car/views/edit_car.njk', {data: {car} });
     }
 
     /**

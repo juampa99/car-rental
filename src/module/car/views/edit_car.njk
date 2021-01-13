@@ -5,17 +5,19 @@
 <div class="container form-container">
 
     <form method="POST" action="/car/submit" enctype="application/x-www-form-urlencoded">
+        <input name="id" type="hidden" value="{{data.car.id}}">
+
         <div class="field div-marca">
             <label class="label">Marca</label>
             <div class="control">
-                <input name="marca" class="input" type="text" placeholder="Toyota, Mitsubishi, etc...">
+                <input name="marca" class="input" type="text" value="{{data.car.marca}}" placeholder="Toyota, Mitsubishi, etc...">
             </div>
         </div>
 
         <div class="field div-modelo">
             <label class="label">Modelo</label>
             <div class="control">
-                <input name="modelo" class="input" type="text" placeholder="Descapotable, familiar,etc...">
+                <input name="modelo" class="input" type="text" value="{{data.car.modelo}}" placeholder="Descapotable, familiar,etc...">
             </div>
         </div>
 
@@ -23,21 +25,21 @@
             <div class="field div-anio">
                 <label class="label">Año</label>
                 <div class="control">
-                    <input name="anio" class="input" type="number" min="1900" max="2021">
+                    <input name="anio" class="input" type="number" value="{{data.car.anio}}" min="1900" max="2021">
                 </div>
             </div>
 
             <div class="field div-kms">
                 <label class="label">Kilometros</label>
                 <div class="control">
-                    <input name="kms" class="input" type="number" min="0">
+                    <input name="kms" class="input" type="number" value="{{data.car.kms}}" min="0">
                 </div>
             </div>
 
             <div class="field div-pasajeros">
                 <label class="label">Pasajeros</label>
                 <div class="control">
-                    <input name="pasajeros" class="input" type="number">
+                    <input name="pasajeros" class="input" value="{{data.car.pasajeros}}" type="number">
                 </div>
             </div>
         </div>
@@ -45,7 +47,7 @@
         <div class="field">
             <label class="label">Color</label>
             <div class="control">
-                <input name="color" class="input" type="text">
+                <input name="color" class="input" value="{{data.car.color}}" type="text">
             </div>
         </div>
 

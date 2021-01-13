@@ -3,39 +3,39 @@
 {% block body %}
 <div class="container div-table-container">
     <div class="table-container">
-        <table class="table is-bordered car-list">
+        <table class="table is-bordered car-list is-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th id="id_h">ID</th>
                     <th>Marca</th>
                     <th>Modelo</th>
-                    <th>Año</th>
-                    <th>KMS</th>
+                    <th id="anio_h">Año</th>
+                    <th id="kms_h">KMS</th>
                     <th>Color</th>
-                    <th>Pasajeros</th>
-                    <th>Aire Acondicionado</th>
-                    <th>Automatico</th>
+                    <th id="pasajeros_h">Pasajeros</th>
+                    <th id="aire_h">Aire Acondicionado</th>
+                    <th id="automatico_h">Automatico</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 {% for car in data.cars %}
                 <tr>
-                    <th>{{ car.id }}</th>
+                    <th id="id_th">{{ car.id }}</th>
                     <th>{{ car.marca }}</th>
                     <th>{{ car.modelo }}</th>
-                    <th>{{ car.anio }}</th>
-                    <th>{{ car.kms }}</th>
+                    <th id="anio_th">{{ car.anio }}</th>
+                    <th id="kms_th">{{ car.kms }}</th>
                     <th>{{ car.color }}</th>
-                    <th>{{ car.pasajeros }}</th>
-                    <th>{{ car.aire_acondicionado }}</th>
-                    <th>{{ car.automatico }}</th>
-                    <th>
-                        <a class="icon">
-                          <i class="fas fa-edit"></i>
+                    <th id="pasajeros_th">{{ car.pasajeros }}</th>
+                    <th id="aire_th">{{ car.aire_acondicionado }}</th>
+                    <th id="automatico_th">{{ car.automatico }}</th>
+                    <th id="actions">
+                        <a href="car/add/{{car.id}}" class="icon is-medium">
+                          <i class="fas fa-edit fa-2x"></i>
                         </a>
-                        <a href="car/delete/{{ car.id }}" class="icon has-text-danger">
-                          <i class="fas fa-ban"></i>
+                        <a href="car/delete/{{ car.id }}" class="icon is-medium has-text-danger">
+                          <i class="fas fa-ban fa-2x"></i>
                         </a>
                     </th>
                 </tr>

@@ -32,10 +32,9 @@ module.exports = class CarRepository {
      * */
     async getAll() {
         let cars = await this.carModel.findAll();
-        if(cars)
-            cars = cars.map(fromModelToEntity);
-        else
-            cars = [];
+
+        cars = cars.map(fromModelToEntity);
+
         return cars;
     }
 

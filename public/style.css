@@ -56,3 +56,95 @@ table {
 .div-auto {
     margin-left: 1vh;
 }
+
+.table th {
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    max-width: 120px;
+}
+
+@media all and (max-width: 945px) {
+    th {
+        font-size: 0.8em;
+    }
+
+    #aire_th {
+        display: none;
+    }
+    #aire_h {
+        display: none;
+    }
+}
+
+@media all and (max-width: 720px) {
+    #automatico_th {
+        display: none;
+    }
+    #automatico_h {
+        display: none;
+    }
+}
+
+@media all and (max-width: 615px) {
+    #pasajeros_th {
+        display: none;
+    }
+    #pasajeros_h {
+        display: none;
+    }
+}
+
+@media all and (max-width: 630px) {
+    #kms_th {
+        display: none;
+    }
+    #kms_h {
+        display: none;
+    }
+
+}
+
+@media all and (max-width: 490px) {
+    #id_th {
+        display: none;
+    }
+    #id_h {
+        display: none;
+    }
+
+    th {
+        font-size: 0.7em;
+    }
+
+    .table th {
+        max-width: 94px;
+    }
+
+}
+
+@media all and (max-width: 460px) {
+    #kms_th {
+        display: none;
+    }
+    #kms_h {
+        display: none;
+    }
+
+}
+
+@media all and (max-width: 380px) {
+    #anio_th {
+        display: none;
+    }
+    #anio_h {
+        display: none;
+    }
+
+}
+
+#actions {
+    white-space: nowrap;
+}
+

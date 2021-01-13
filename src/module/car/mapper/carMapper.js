@@ -32,7 +32,14 @@ function fromDataToEntity({
  * @returns Car
  * */
 function fromModelToEntity(model) {
-    return new Car(model.toJSON());
+    let car;
+
+    if(model)
+        car = new Car(model.toJSON());
+    else
+        car = null;
+
+    return car;
 }
 
 module.exports = {

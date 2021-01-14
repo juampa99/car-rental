@@ -148,3 +148,9 @@ table {
     white-space: nowrap;
 }
 
+.div-error-container {
+    width: 100vh;
+
+    text-align: center;
+}
+

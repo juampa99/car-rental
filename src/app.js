@@ -22,5 +22,8 @@ carModule.init(app, container);
 
 const carController = container.get('CarController');
 app.get('/', carController.index.bind(carController));
+app.use((req,res)=>{
+    res.render('./views/fragments/error_not_found.njk');
+})
 
 app.listen(PORT, () => console.log('Listening on port ' + PORT));

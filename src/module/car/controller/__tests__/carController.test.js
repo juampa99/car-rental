@@ -29,3 +29,24 @@ test('addForm renderiza edit_car.njk apropiadamente', async () => {
     expect(renderMock).toHaveBeenCalledWith('./car/views/edit_car.njk', {data: {car: {}} });
 
 })
+
+test('delete llama a serviceMock.delete y a res.redirect una vez', async () => {
+    const redirectMock = jest.fn();
+
+    await controller.delete({params:{id: 10}} , {redirect: redirectMock});
+
+    expect(serviceMock.delete).toHaveBeenCalledTimes(1);
+    expect(redirectMock).toHaveBeenCalledTimes(1);
+    expect(redirectMock).toHaveBeenCalledWith('/car');
+})
+
+test('delete llama a serviceMock.delete y a res.redirect una vez', async () => {
+    const redirectMock = jest.fn();
+
+    await controller.delete({params:{id: 10}} , {redirect: redirectMock});
+
+    expect(serviceMock.delete).toHaveBeenCalledTimes(1);
+    expect(redirectMock).toHaveBeenCalledTimes(1);
+    expect(redirectMock).toHaveBeenCalledWith('/car');
+})
+

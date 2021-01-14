@@ -53,10 +53,16 @@ module.exports = class CarController {
         res.redirect(this.ROUTE_BASE);
     }
 
+    /**
+     * @param {import('express').Request} req
+     * @param {import('express').Response} res
+     * */
     async delete(req, res) {
-        const id = req.params.id;
 
-        this.carService.delete({id});
+        if(req.params && req.params.id) {
+            let id = req.params.id;
+            await this.carService.delete({id});
+        }
 
         res.redirect(this.ROUTE_BASE);
     }

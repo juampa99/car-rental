@@ -20,26 +20,26 @@ let carModel;
  * */
 let sampleCar = new Car({
     id: null,
-    marca: 'Nisan',
-    modelo: 'Base',
-    anio: 1999,
+    brand: 'Nisan',
+    model: 'Base',
+    year: 1999,
     kms: 50000,
     color: 'Rojo',
-    aire_acondicionado: false,
-    pasajeros: 3,
-    automatico: false
+    air_conditioner: false,
+    passengers: 3,
+    automatic: false
 })
 
 let sampleCar2 = new Car({
     id: null,
-    marca: 'Toyota',
-    modelo: 'Base',
-    anio: 2015,
+    brand: 'Toyota',
+    model: 'Base',
+    year: 2015,
     kms: 5200,
     color: 'Azul',
-    aire_acondicionado: false,
-    pasajeros: 2,
-    automatico: true
+    air_conditioner: false,
+    passengers: 2,
+    automatic: true
 })
 
 beforeAll(()=>{
@@ -65,13 +65,13 @@ test('Obtiene un auto de la base de datos', async () => {
     expect(car.id).toEqual(1);
 })
 
-test('Obtiene todos los modelos de la base de datos', async () => {
+test('Obtiene todos los models de la base de datos', async () => {
     await repository.save(sampleCar);
     await repository.save(sampleCar2);
     let models = await repository.getAll();
     expect(models.length).toEqual(2);
-    expect(models[0].marca).toEqual('Nisan');
-    expect(models[1].marca).toEqual('Toyota');
+    expect(models[0].brand).toEqual('Nisan');
+    expect(models[1].brand).toEqual('Toyota');
 })
 
 
@@ -93,7 +93,7 @@ test('Actualiza un auto cuando se guarda uno con el mismo ID', async () => {
     await repository.save(sampleCar2);
 
     let firstCar = await repository.getById(1);
-    expect(firstCar.marca).toEqual('Toyota');
+    expect(firstCar.brand).toEqual('Toyota');
 })
 
 test('Hace un getAll() de una base de datos vacia', async ()=>{

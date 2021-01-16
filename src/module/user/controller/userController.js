@@ -1,12 +1,12 @@
-const { fromDataToEntity } = require('../mapper/carMapper');
+const { fromDataToEntity } = require('../mapper/userMapper');
 
-module.exports = class CarController {
+module.exports = class UserController {
     /**
-     *  @param {import('../service/carService')} carService
+     *  @param {import('../service/userService')} userService
      * */
-    constructor(carService) {
-        this.ROUTE_BASE = '/car';
-        this.carService = carService;
+    constructor(userService) {
+        this.ROUTE_BASE = '/user';
+        this.userService = userService;
     }
 
     /**
@@ -25,8 +25,8 @@ module.exports = class CarController {
      * @param {import('express').Response} res
      * */
     async index(req, res) {
-        const cars = await this.carService.getAll();
-        res.render('./car/views/list.njk', {data: { cars, route: this.ROUTE_BASE }});
+        const users = await this.userService.getAll();
+        res.render('./user/views/list.njk', {data: { users, route: this.ROUTE_BASE }});
     }
 
     /**
@@ -34,11 +34,11 @@ module.exports = class CarController {
      * @param {import('express').Response} res
      * */
     async addForm(req, res) {
-        let car = {};
+        let user = {};
         if(req.params && req.params.id)
-            car = await this.carService.getById(req.params.id)
+            user = await this.userService.getById(req.params.id)
 
-        res.render('./car/views/edit_car.njk', {data: {car}, route: this.ROUTE_BASE });
+        res.render('./user/views/edit_user.njk', {data: {user}, route: this.ROUTE_BASE });
     }
 
     /**
@@ -46,9 +46,9 @@ module.exports = class CarController {
      * @param {import('express').Response} res
      * */
     async submit(req, res) {
-        const car = fromDataToEntity(req.body);
+        const user = fromDataToEntity(req.body);
 
-        await this.carService.save(car);
+        await this.userService.save(user);
 
         res.redirect(this.ROUTE_BASE);
     }
@@ -61,7 +61,7 @@ module.exports = class CarController {
 
         if(req.params && req.params.id) {
             let id = req.params.id;
-            await this.carService.delete({id});
+            await this.userService.delete({id});
         }
 
         res.redirect(this.ROUTE_BASE);

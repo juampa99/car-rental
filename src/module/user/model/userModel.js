@@ -1,12 +1,12 @@
 const { Model, DataTypes: {INTEGER, STRING} } = require("sequelize");
 
-module.exports = class CarModel extends Model{
+module.exports = class UserModel extends Model{
     /**
      * @param {import('sequelize').Sequelize} sequelizeInstance
-     * @returns {typeof CarModel}
+     * @returns {typeof UserModel}
      * */
     static setup(sequelizeInstance) {
-        CarModel.init({
+        UserModel.init({
             id: {
                 type: INTEGER,
                 allowNull: false,
@@ -14,22 +14,21 @@ module.exports = class CarModel extends Model{
                 autoIncrement: true,
                 unique: true
             },
-            brand: STRING,
-            model: STRING,
-            year: INTEGER,
-            kms: INTEGER,
-            color: STRING,
-            air_conditioner: STRING,
-            passengers: INTEGER,
-            automatic: STRING,
+            first_name: STRING,
+            last_name: STRING,
+            birth_date: STRING,
+            country: STRING,
+            gender: STRING,
+            phone_number: STRING,
+            id_number: INTEGER,
             photo: STRING
         },
         {
             sequelize: sequelizeInstance,
-            modelName: 'Car',
+            modelName: 'User',
             createdAt: 'created_at',
             updatedAt: 'updated_at'
         })
-        return CarModel;
+        return UserModel;
     }
 }

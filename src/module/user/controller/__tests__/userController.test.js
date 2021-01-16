@@ -1,4 +1,4 @@
-const CarController = require('../carController');
+const UserController = require('../userController');
 
 const serviceMock = {
     save: jest.fn(),
@@ -7,7 +7,7 @@ const serviceMock = {
     getAll: jest.fn(() => Promise.resolve([]))
 }
 
-const controller = new CarController(serviceMock);
+const controller = new UserController(serviceMock);
 
 test('index renderiza list.njk apropiadamente', async () => {
     const renderMock = jest.fn();
@@ -15,18 +15,18 @@ test('index renderiza list.njk apropiadamente', async () => {
     await controller.index({} , {render: renderMock});
 
     expect(renderMock).toHaveBeenCalledTimes(1);
-    expect(renderMock).toHaveBeenCalledWith('./car/views/list.njk', {data: {cars: []} });
+    expect(renderMock).toHaveBeenCalledWith('./user/views/list.njk', {data: {users: []} });
 
 })
 
-test('addForm renderiza edit_car.njk apropiadamente', async () => {
+test('addForm renderiza edit_user.njk apropiadamente', async () => {
     const renderMock = jest.fn();
 
     await controller.addForm({} , {render: renderMock});
 
     expect(renderMock).toHaveBeenCalledTimes(1);
     expect(serviceMock.getById).toHaveBeenCalledTimes(0);
-    expect(renderMock).toHaveBeenCalledWith('./car/views/edit_car.njk', {data: {car: {}} });
+    expect(renderMock).toHaveBeenCalledWith('./user/views/edit_user.njk', {data: {user: {}} });
 
 })
 
@@ -37,5 +37,5 @@ test('delete llama a serviceMock.delete y a res.redirect una vez', async () => {
 
     expect(serviceMock.delete).toHaveBeenCalledTimes(1);
     expect(redirectMock).toHaveBeenCalledTimes(1);
-    expect(redirectMock).toHaveBeenCalledWith('/car');
+    expect(redirectMock).toHaveBeenCalledWith('/user');
 })

@@ -1,0 +1,87 @@
+{% extends '../../views/index.njk' %}
+
+{% block body %}
+
+<div class="container form-container">
+
+    <form method="POST" action="/user/submit" enctype="application/x-www-form-urlencoded">
+        <input name="id" type="hidden" value="{{data.user.id}}">
+
+        <div class="container field div-name">
+            <div class="field div-first_name">
+                <label class="label">Nombre</label>
+                <div class="control">
+                    <input name="first_name" class="input" type="text" value="{{data.user.first_name}}" placeholder="John, Terry, etc...">
+                </div>
+            </div>
+
+            <div class="field div-last_name">
+                <label class="label">Apellido</label>
+                <div class="control">
+                    <input name="last_name" class="input" type="text" value="{{data.user.last_name}}" placeholder="Doe, Smith, etc...">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="field div-birth_date">
+            <label class="label">Birth Date</label>
+            <div class="control">
+                <input name="birth_date" class="input" type="date" value="{{data.user.birth_date}}">
+            </div>
+        </div>
+
+        <div class="field div-country">
+            <label class="label">Country</label>
+            <div class="control">
+                <input name="country" class="input" type="text" value="{{data.user.country}}">
+            </div>
+        </div>
+
+        <div class="field div-gender">
+            <label class="label">Pasajeros</label>
+            <div class="select">
+                <select name="gender" value="{{data.user.gender}}">
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="field">
+            <label class="label">Phone Number</label>
+            <div class="control">
+                <input name="phone_number" class="input" value="{{data.user.phone_number}}" type="text">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">ID Number</label>
+            <div class="control">
+                <input name="id_number" class="input" value="{{data.user.id_number}}" type="number">
+            </div>
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <input class="button" type="submit" value="Submit"/>
+            </div>
+            <div class="control">
+                <button class="button is-link is-light">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    let gender = '{{data.user.gender}}';
+    let options = document.querySelectorAll('option');
+    options.forEach(option=>{
+        if(option.value === gender)
+            option.selected = true;
+    })
+</script>
+
+{% endblock %}

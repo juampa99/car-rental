@@ -22,14 +22,14 @@
                 {% for car in data.cars %}
                 <tr>
                     <th id="id_th">{{ car.id }}</th>
-                    <th>{{ car.marca }}</th>
-                    <th>{{ car.modelo }}</th>
-                    <th id="anio_th">{{ car.anio }}</th>
+                    <th>{{ car.brand }}</th>
+                    <th>{{ car.model }}</th>
+                    <th id="anio_th">{{ car.year }}</th>
                     <th id="kms_th">{{ car.kms }}</th>
                     <th>{{ car.color }}</th>
-                    <th id="pasajeros_th">{{ car.pasajeros }}</th>
-                    <th id="aire_th">{{ car.aire_acondicionado }}</th>
-                    <th id="automatico_th">{{ car.automatico }}</th>
+                    <th id="pasajeros_th">{{ car.passengers }}</th>
+                    <th id="aire_th">{{ car.air_conditioner }}</th>
+                    <th id="automatico_th">{{ car.automatic }}</th>
                     <th id="actions">
                         <a href="car/add/{{car.id}}" class="icon is-medium">
                           <i class="fas fa-edit fa-2x"></i>

@@ -10,14 +10,14 @@
         <div class="field div-marca">
             <label class="label">Marca</label>
             <div class="control">
-                <input name="marca" class="input" type="text" value="{{data.car.marca}}" placeholder="Toyota, Mitsubishi, etc...">
+                <input name="brand" class="input" type="text" value="{{data.car.brand}}" placeholder="Toyota, Mitsubishi, etc...">
             </div>
         </div>
 
         <div class="field div-modelo">
             <label class="label">Modelo</label>
             <div class="control">
-                <input name="modelo" class="input" type="text" value="{{data.car.modelo}}" placeholder="Descapotable, familiar,etc...">
+                <input name="model" class="input" type="text" value="{{data.car.model}}" placeholder="Descapotable, familiar,etc...">
             </div>
         </div>
 
@@ -25,7 +25,7 @@
             <div class="field div-anio">
                 <label class="label">Año</label>
                 <div class="control">
-                    <input name="anio" class="input" type="number" value="{{data.car.anio}}" min="1900" max="2021">
+                    <input name="year" class="input" type="number" value="{{data.car.year}}" min="1900" max="2021">
                 </div>
             </div>
 
@@ -39,7 +39,7 @@
             <div class="field div-pasajeros">
                 <label class="label">Pasajeros</label>
                 <div class="control">
-                    <input name="pasajeros" class="input" value="{{data.car.pasajeros}}" type="number">
+                    <input name="passengers" class="input" value="{{data.car.passengers}}" type="number">
                 </div>
             </div>
         </div>
@@ -56,14 +56,14 @@
 
             <div class="field div-aire">
                 <div class="control">
-                    <input name="aire_acondicionado" class="switch" type="checkbox">
+                    <input name="air_conditioner" id="air_conditioner" class="checkbox" type="checkbox">
                     Aire Acondicionado
                 </div>
             </div>
 
             <div class="field div-auto">
                 <div class="control">
-                    <input name="automatico" class="checkbox" type="checkbox">
+                    <input name="automatic" id="automatic" class="checkbox" type="checkbox">
                     Automatico
                 </div>
             </div>

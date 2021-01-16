@@ -1,35 +1,35 @@
 module.exports = class Car {
     /**
      * @param {number} id
-     * @param {string} marca
-     * @param {string} modelo
-     * @param {number} anio
+     * @param {string} brand
+     * @param {string} model
+     * @param {number} year
      * @param {number} kms
      * @param {string} color
-     * @param {string} aire_acondicionado
-     * @param {number} pasajeros
-     * @param {string} automatico
+     * @param {string} airConditioner
+     * @param {number} passengers
+     * @param {string} automatic
      * */
     constructor({
             id,
-            marca,
-            modelo,
-            anio,
+            brand,
+            model,
+            year,
             kms,
             color,
-            aire_acondicionado,
-            pasajeros,
-            automatico
+            air_conditioner,
+            passengers,
+            automatic
         }
     ) {
         this.id = id;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.anio = anio;
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
         this.kms = kms;
         this.color = color;
-        this.aire_acondicionado = aire_acondicionado;
-        this.pasajeros = pasajeros;
-        this.automatico = automatico;
+        this.air_conditioner = air_conditioner;
+        this.passengers = passengers;
+        this.automatic = automatic;
     }
 }

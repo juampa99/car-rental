@@ -4,7 +4,7 @@
 
 module.exports = class CarService {
     /**
-     *  @param {import('../repository/carRepository')}
+     *  @param {import('../repository/carRepository')} carRepository
      * */
     constructor(carRepository) {
         this.carRepository = carRepository;

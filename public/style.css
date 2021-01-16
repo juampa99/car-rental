@@ -42,7 +42,6 @@ table {
     width: 100%;
 }
 
-
 .div-pasajeros {
     width: 100%;
 }
@@ -154,3 +153,16 @@ table {
     text-align: center;
 }
 
+.div-name {
+    display: flex;
+    justify-content: flex-start;
+    vertical-align: center;
+}
+
+.div-first_name {
+    width: 100%;
+}
+
+.div-last_name {
+    width: 100%;
+}

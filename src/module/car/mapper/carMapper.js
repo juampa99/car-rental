@@ -2,28 +2,28 @@ const Car = require('../entity/car');
 
 function fromDataToEntity({
     id,
-    marca,
-    modelo,
-    anio,
+    brand,
+    model,
+    year,
     kms,
     color,
-    aire_acondicionado,
-    pasajeros,
-    automatico
+    air_conditioner,
+    passengers,
+    automatic
 }) {
-    let autom = automatico && automatico === 'on' ? 'Si' : 'No';
-    let aire = aire_acondicionado && aire_acondicionado === 'on' ? 'Si' : 'No';
+    let autom = automatic && automatic === 'on' ? 'Yes' : 'No';
+    let ac = air_conditioner && air_conditioner === 'on' ? 'Yes' : 'No';
 
     return new Car({
         id,
-        marca,
-        modelo,
-        anio,
+        brand,
+        model,
+        year,
         kms,
         color,
-        aire_acondicionado: aire,
-        pasajeros,
-        automatico: autom
+        air_conditioner: ac,
+        passengers,
+        automatic: autom
     })
 }
 

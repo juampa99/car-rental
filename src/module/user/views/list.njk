@@ -10,7 +10,7 @@
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th class="birth-date">Nacimiento</th>
-                    <th>Country</th>
+                    <th>Pais</th>
                     <th class="gender">Genero</th>
                     <th class="phone-n">Telefono</th>
                     <th class="id-n">DNI</th>
@@ -24,7 +24,7 @@
                         {% if user.photo %}
                         <img class="list-photo" src="/{{ user.photo }}">
                         {% else %}
-                        <img class="list-photo" src="https://style.anu.edu.au/_anu/4/images/placeholders/person_8x10.png">
+                        <img class="list-photo" src="/public/upload/placeholder_photo.png">
                         {% endif %}
                     </th>
                     <th>{{ user.first_name }}</th>

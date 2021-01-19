@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const configureDI = require('../config/DI');
 const app = express();
@@ -18,7 +19,7 @@ carService.save({
     air_conditioner: 'Yes',
     passengers: 3,
     automatic: 'No',
-    photo: 'https://style.anu.edu.au/_anu/4/images/placeholders/person_8x10.png',
+    photo: 'public/upload/placeholder_photo.png',
     price_per_day: 15,
     stock: 5
 })
@@ -33,7 +34,7 @@ carService.save({
     air_conditioner: 'Yes',
     passengers: 3,
     automatic: 'Yes',
-    photo: 'https://style.anu.edu.au/_anu/4/images/placeholders/person_8x10.png',
+    photo: 'public/upload/placeholder_photo.png',
     price_per_day: 30,
     stock: 2
 })
@@ -47,7 +48,7 @@ userService.save({
     gender: 'Male',
     phone_number: '+1516555805',
     id_number: 25645522982,
-    photo: 'https://style.anu.edu.au/_anu/4/images/placeholders/person_8x10.png'
+    photo: 'public/upload/placeholder_photo.png'
 })
 
 userService.save({
@@ -59,5 +60,13 @@ userService.save({
     gender: 'Female',
     phone_number: '+1556549683',
     id_number: 18004855435,
-    photo: 'https://style.anu.edu.au/_anu/4/images/placeholders/person_8x10.png'
+    photo: 'public/upload/placeholder_photo.png'
+})
+
+rentService.save({
+    id: null,
+    from_date: '2020-01-05',
+    to_date: '2020-01-08',
+    fk_car: 1,
+    fk_user: 1
 })

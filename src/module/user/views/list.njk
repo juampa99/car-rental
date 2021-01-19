@@ -22,9 +22,9 @@
                 <tr>
                     <th>
                         {% if user.photo %}
-                        <img class="list-photo" src="/{{ user.photo }}" width="64" height="64">
+                        <img class="list-photo" src="/{{ user.photo }}">
                         {% else %}
-                        <img class="list-photo" src="https://style.anu.edu.au/_anu/4/images/placeholders/person_8x10.png" width="64" height="64">
+                        <img class="list-photo" src="https://style.anu.edu.au/_anu/4/images/placeholders/person_8x10.png">
                         {% endif %}
                     </th>
                     <th>{{ user.first_name }}</th>

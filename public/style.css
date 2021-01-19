@@ -273,7 +273,8 @@ html, body {
 }
 
 .list-photo {
+    object-fit: contain;
+    width: 100%;
     height: 64px;
-    width: 64px;
 }
 

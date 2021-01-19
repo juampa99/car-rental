@@ -1,11 +1,12 @@
 # Car Rental CRUD/ABM
 
 ### Table of Contents
-- [Instalación](#instalaci-n)
-- [Tecnologías usadas](#tecnolog-as-usadas)
+- [Instalacion](#instalacion)
+- [Uso](#uso)
+- [Tecnologias usadas](#tecnologias-usadas)
 - [C4 Model](#c4-model)
 
-## Instalación
+## Instalacion
 - Descargar repositorio y descomprimir
 - En la carpeta root del proyecto, ejecutar:
    * npm install
@@ -15,7 +16,7 @@
 ## Uso
 - npm run dev
 
-## Tecnologías usadas
+## Tecnologias usadas
 
 Front-end: VanillaJS, Bulma (CSS Framework), nunjucks (templating)
 

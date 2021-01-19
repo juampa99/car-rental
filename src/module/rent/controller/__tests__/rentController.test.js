@@ -1,4 +1,4 @@
-const UserController = require('../userController');
+const RentController = require('../rentController');
 
 const serviceMock = {
     save: jest.fn(),
@@ -7,11 +7,7 @@ const serviceMock = {
     getAll: jest.fn(() => Promise.resolve([]))
 }
 
-const uploadMiddlewareMock = {
-    single: jest.fn()
-}
-
-const controller = new UserController(uploadMiddlewareMock, serviceMock);
+const controller = new RentController(serviceMock, serviceMock, serviceMock);
 const route = controller.ROUTE_BASE;
 
 test('index renderiza list.njk apropiadamente', async () => {
@@ -20,18 +16,25 @@ test('index renderiza list.njk apropiadamente', async () => {
     await controller.index({} , {render: renderMock});
 
     expect(renderMock).toHaveBeenCalledTimes(1);
-    expect(renderMock).toHaveBeenCalledWith('./user/views/list.njk', {data: {users: [], route} });
+    expect(renderMock).toHaveBeenCalledWith('./rent/views/list.njk', {data: {rents: [], route} });
 
 })
 
-test('addForm renderiza edit_user.njk apropiadamente', async () => {
+test('addForm renderiza edit_rent.njk apropiadamente', async () => {
     const renderMock = jest.fn();
 
     await controller.addForm({} , {render: renderMock});
 
     expect(renderMock).toHaveBeenCalledTimes(1);
     expect(serviceMock.getById).toHaveBeenCalledTimes(0);
-    expect(renderMock).toHaveBeenCalledWith('./user/views/edit_user.njk', {data: {user: {}, route} });
+    expect(renderMock).toHaveBeenCalledWith('./rent/views/edit_rent.njk', {
+        data: {
+            rent: {},
+            cars: [],
+            users: [],
+            route
+        }
+    });
 
 })
 
@@ -42,5 +45,5 @@ test('delete llama a serviceMock.delete y a res.redirect una vez', async () => {
 
     expect(serviceMock.delete).toHaveBeenCalledTimes(1);
     expect(redirectMock).toHaveBeenCalledTimes(1);
-    expect(redirectMock).toHaveBeenCalledWith('/user');
+    expect(redirectMock).toHaveBeenCalledWith('/rent');
 })

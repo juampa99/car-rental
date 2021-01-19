@@ -3,36 +3,42 @@
 {% block body %}
 <div class="container div-table-container column">
     <div class="table-container">
-        <table class="table is-bordered car-list is-striped">
+        <table class="table is-hoverable car-list is-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Birth Date</th>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th class="birth-date">Nacimiento</th>
                     <th>Country</th>
-                    <th>Gender</th>
-                    <th>Phone Number</th>
-                    <th>ID Number</th>
-                    <th>Actions</th>
+                    <th class="gender">Genero</th>
+                    <th class="phone-n">Telefono</th>
+                    <th class="id-n">DNI</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 {% for user in data.users %}
                 <tr>
-                    <th>{{ user.id }}</th>
+                    <th>
+                        {% if user.photo %}
+                        <img class="list-photo" src="/{{ user.photo }}" width="64" height="64">
+                        {% else %}
+                        <img class="list-photo" src="https://style.anu.edu.au/_anu/4/images/placeholders/person_8x10.png" width="64" height="64">
+                        {% endif %}
+                    </th>
                     <th>{{ user.first_name }}</th>
                     <th>{{ user.last_name }}</th>
-                    <th>{{ user.birth_date }}</th>
+                    <th class="birth-date">{{ user.birth_date }}</th>
                     <th>{{ user.country }}</th>
-                    <th>{{ user.gender }}</th>
-                    <th>{{ user.phone_number }}</th>
-                    <th>{{ user.id_number }}</th>
+                    <th class="gender">{{ user.gender }}</th>
+                    <th class="phone-n">{{ user.phone_number }}</th>
+                    <th class="id-n">{{ user.id_number }}</th>
                     <th id="actions">
                         <a href="user/add/{{user.id}}" class="icon is-medium">
                           <i class="fas fa-edit fa-2x"></i>
                         </a>
-                        <a href="user/delete/{{ user.id }}" class="icon is-medium has-text-danger">
+                        <a href="user/delete/{{user.id}}" class="icon is-medium has-text-danger">
                           <i class="fas fa-ban fa-2x"></i>
                         </a>
                     </th>

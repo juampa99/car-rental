@@ -5,8 +5,10 @@
   "main": "/src/app.js",
   "dependencies": {
     "bulma": "^0.9.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsdoc": "^3.6.6",
+    "multer": "^1.4.2",
     "nunjucks": "^3.2.2",
     "rsdi": "^1.0.10",
     "sequelize": "^6.3.5",
@@ -21,6 +23,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/app.js",
     "setup": "node src/cli/setup.js",
+    "dummy-db": "node src/cli/dummy_data.js",
     "dev": "nodemon src/app.js"
   },
   "author": "Juan Pablo Allende",

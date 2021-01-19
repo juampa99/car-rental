@@ -3,15 +3,16 @@
 {% block body %}
 <div class="container div-table-container">
     <div class="table-container">
-        <table class="table is-bordered car-list is-striped">
+        <table class="table is-hoverable car-list is-striped">
             <thead>
                 <tr>
-                    <th id="id_h">ID</th>
+                    <th>Stock</th>
+                    <th>Precio/Dia</th>
                     <th>Marca</th>
                     <th>Modelo</th>
                     <th id="anio_h">Año</th>
                     <th id="kms_h">KMS</th>
-                    <th>Color</th>
+                    <th class="color_h">Color</th>
                     <th id="pasajeros_h">Pasajeros</th>
                     <th id="aire_h">Aire Acondicionado</th>
                     <th id="automatico_h">Automatico</th>
@@ -21,22 +22,23 @@
             <tbody>
                 {% for car in data.cars %}
                 <tr>
-                    <th id="id_th">{{ car.id }}</th>
+                    <th>{{ car.stock }}</th>
+                    <th>{{ car.price_per_day }}</th>
                     <th>{{ car.brand }}</th>
                     <th>{{ car.model }}</th>
                     <th id="anio_th">{{ car.year }}</th>
                     <th id="kms_th">{{ car.kms }}</th>
-                    <th>{{ car.color }}</th>
+                    <th class="color_h">{{ car.color }}</th>
                     <th id="pasajeros_th">{{ car.passengers }}</th>
                     <th id="aire_th">{{ car.air_conditioner }}</th>
                     <th id="automatico_th">{{ car.automatic }}</th>
                     <th id="actions">
-                        <a href="car/add/{{car.id}}" class="icon is-medium">
-                          <i class="fas fa-edit fa-2x"></i>
-                        </a>
-                        <a href="car/delete/{{ car.id }}" class="icon is-medium has-text-danger">
-                          <i class="fas fa-ban fa-2x"></i>
-                        </a>
+                            <a href="car/add/{{car.id}}" class="icon is-medium list-action-icon">
+                                <i class="fas fa-edit fa-2x"></i>
+                            </a>
+                            <a href="car/delete/{{ car.id }}" class="icon is-medium has-text-danger list-action-icon">
+                                <i class="fas fa-ban fa-2x"></i>
+                            </a>
                     </th>
                 </tr>
                 {% endfor %}

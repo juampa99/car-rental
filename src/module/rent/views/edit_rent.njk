@@ -1,0 +1,74 @@
+{% extends '../../views/index.njk' %}
+
+{% block body %}
+
+<div class="container form-container">
+
+    <form method="POST" action="/rent/submit" enctype="application/x-www-form-urlencoded">
+        <input name="id" type="hidden" value="{{data.rent.id}}">
+
+        <div class="field">
+            <label class="label">From Date</label>
+            <div class="control">
+                <input name="from_date" class="input" type="date" value="{{data.rent.from_date}}">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Until Date</label>
+            <div class="control">
+                <input name="to_date" class="input" type="date" value="{{data.rent.to_date}}">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">User</label>
+            <div class="select">
+                <select id="select_user" name="fk_user">
+                    {% for user in data.users %}
+                    <option value="{{user.id}}">{{user.id}} {{user.first_name}} {{user.last_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Car</label>
+            <div class="select">
+                <select id="select_car" name="fk_car">
+                    {% for car in data.cars %}
+                    <option value="{{car.id}}">{{car.id}} {{car.brand}} {{car.model}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <input class="button" type="submit" value="Submit"/>
+            </div>
+            <div class="control">
+                <a href="/rent" class="button is-link is-light">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    let selected_car = '{{data.rent.car.id}}';
+    let car_options = document.querySelectorAll('#select_car > option');
+    car_options.forEach(option=>{
+        if(option.value === selected_car)
+            option.selected = true;
+    })
+
+    let selected_user = '{{data.rent.user.id}}';
+    let user_options = document.querySelectorAll('#select_user > option');
+    user_options.forEach(option=>{
+        if(option.value === selected_user)
+            option.selected = true;
+    })
+
+</script>
+
+{% endblock %}

@@ -8,6 +8,7 @@ const serviceMock = {
 }
 
 const controller = new CarController(serviceMock);
+const route = controller.ROUTE_BASE;
 
 test('index renderiza list.njk apropiadamente', async () => {
     const renderMock = jest.fn();
@@ -15,7 +16,7 @@ test('index renderiza list.njk apropiadamente', async () => {
     await controller.index({} , {render: renderMock});
 
     expect(renderMock).toHaveBeenCalledTimes(1);
-    expect(renderMock).toHaveBeenCalledWith('./car/views/list.njk', {data: {cars: []} });
+    expect(renderMock).toHaveBeenCalledWith('./car/views/list.njk', {data: {cars: [], route} });
 
 })
 
@@ -26,7 +27,7 @@ test('addForm renderiza edit_car.njk apropiadamente', async () => {
 
     expect(renderMock).toHaveBeenCalledTimes(1);
     expect(serviceMock.getById).toHaveBeenCalledTimes(0);
-    expect(renderMock).toHaveBeenCalledWith('./car/views/edit_car.njk', {data: {car: {}} });
+    expect(renderMock).toHaveBeenCalledWith('./car/views/edit_car.njk', {data: {car: {}, route} });
 
 })
 

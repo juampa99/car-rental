@@ -1,3 +1,4 @@
+const User = require('./entity/user');
 const UserModel = require('./model/userModel');
 const UserService = require('./service/userService');
 const UserRepository = require('./repository/userRepository');
@@ -17,5 +18,6 @@ module.exports = {
     UserController,
     UserRepository,
     UserService,
-    UserModel
+    UserModel,
+    User
 }

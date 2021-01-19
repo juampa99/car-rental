@@ -44,6 +44,24 @@
             </div>
         </div>
 
+        <div class="field div-anio-kms">
+
+            <div class="field div-kms">
+                <label class="label">Precio/Dia</label>
+                <div class="control">
+                    <input name="price_per_day" class="input" value="{{data.car.price_per_day}}" type="number">
+                </div>
+            </div>
+
+            <div class="field div-anio">
+                <label class="label">Stock</label>
+                <div class="control">
+                    <input name="stock" class="input" value="{{data.car.stock}}" type="number">
+                </div>
+            </div>
+        </div>
+
+
         <div class="field">
             <label class="label">Color</label>
             <div class="control">
@@ -72,13 +90,32 @@
 
         <div class="field is-grouped">
             <div class="control">
-                <input class="button" type="submit" value="Submit"/>
+                <input class="button" type="submit" value="Listo"/>
             </div>
             <div class="control">
-                <button class="button is-link is-light">Cancel</button>
+                <a href="/car" class="button is-link is-light">Cancelar</a>
             </div>
         </div>
     </form>
+
+    <script>
+        const ac = '{{data.car.air_conditioner}}';
+        const autom = '{{data.car.automatic}}';
+
+        const has_ac = ac === 'Yes';
+        const is_autom = autom === 'Yes';
+
+        const ac_checkbox = document.querySelector('#air_conditioner');
+        const autom_checkbox = document.querySelector('#automatic');
+
+        if(has_ac)
+            ac_checkbox.checked = true;
+
+        if(is_autom)
+            autom_checkbox.checked = true;
+
+
+    </script>
 
 </div>
 

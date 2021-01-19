@@ -75,6 +75,10 @@ table {
     #aire_h {
         display: none;
     }
+
+    .div-table-container {
+        width: 96%;
+    }
 }
 
 @media all and (max-width: 720px) {
@@ -84,6 +88,10 @@ table {
     #automatico_h {
         display: none;
     }
+
+    .id-n {
+        display:none;
+    }
 }
 
 @media all and (max-width: 615px) {
@@ -92,6 +100,17 @@ table {
     }
     #pasajeros_h {
         display: none;
+    }
+
+    .phone-n {
+        display: none;
+    }
+}
+
+@media all and (min-width: 631px) {
+    .photo_img {
+        width: 256px;
+        height: 256px;
     }
 }
 
@@ -103,13 +122,18 @@ table {
         display: none;
     }
 
+    .div-photo {
+        width: 50%;
+        height: auto;
+    }
+
 }
 
-@media all and (max-width: 490px) {
-    #id_th {
+@media all and (max-width: 530px) {
+    #marca_th {
         display: none;
     }
-    #id_h {
+    #marca_h {
         display: none;
     }
 
@@ -123,7 +147,7 @@ table {
 
 }
 
-@media all and (max-width: 460px) {
+@media all and (max-width: 490px) {
     #kms_th {
         display: none;
     }
@@ -131,9 +155,16 @@ table {
         display: none;
     }
 
+    .birth-date {
+        display: none;
+    }
+
+    .id_h {
+        display: none;
+    }
 }
 
-@media all and (max-width: 380px) {
+@media all and (max-width: 430px) {
     #anio_th {
         display: none;
     }
@@ -141,6 +172,19 @@ table {
         display: none;
     }
 
+    .gender {
+        display: none;
+    }
+
+    .precio_h {
+        display: none;
+    }
+}
+
+@media all and (max-width: 400px) {
+    .color_h {
+        display: none;
+    }
 }
 
 #actions {
@@ -149,7 +193,6 @@ table {
 
 .div-error-container {
     width: 100vh;
-
     text-align: center;
 }
 
@@ -166,3 +209,71 @@ table {
 .div-last_name {
     width: 100%;
 }
+
+.full-width {
+    width: 100%
+}
+
+.half-width {
+    width: 90%
+}
+
+.div-flex-container {
+    display: flex;
+    justify-content: flex-start;
+    vertical-align: center;
+}
+
+.div-table-container {
+    text-align: center;
+    width: 90%;
+}
+
+.table-container {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background: #ffffff;
+    box-shadow:  20px 20px 60px #d9d9d9;
+    margin-bottom: 10%;
+    display:inline-block;
+    width: 100%;
+}
+
+
+table {
+    width: 100%;
+}
+
+html, body {
+    background-color:  #eaf1f6;
+    width: 100%;
+    position: fixed;
+}
+
+.div-photo {
+    float: lefT;
+    padding-right: 10px;
+}
+
+.birth-date-input {
+    width: 80%;
+}
+
+.photo_img {
+    border-radius: 24px;
+    background: #eaf1f6;
+    box-shadow: inset 9px 9px 18px #b5b5b5,
+    inset -9px -9px 18px #ffffff;
+}
+
+@media all and (max-width: 1000px) {
+    .div-table-container {
+        width: 96%;
+    }
+}
+
+.list-photo {
+    height: 64px;
+    width: 64px;
+}
+

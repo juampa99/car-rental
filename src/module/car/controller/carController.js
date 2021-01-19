@@ -38,7 +38,7 @@ module.exports = class CarController {
         if(req.params && req.params.id)
             car = await this.carService.getById(req.params.id)
 
-        res.render('./car/views/edit_car.njk', {data: {car}, route: this.ROUTE_BASE });
+        res.render('./car/views/edit_car.njk', {data: {car, route: this.ROUTE_BASE} });
     }
 
     /**

@@ -1,13 +1,16 @@
-const { fromDataToEntity } = require('../mapper/userMapper');
+const { fromFormToEntity } = require('../mapper/rentMapper');
 
-module.exports = class UserController {
+module.exports = class RentController {
     /**
-     *  @param {import('../service/userService')} userService
+     *  @param {import('../service/rentService')} rentService
+     *  @param {import('../../car/service/carService')} carService
+     *  @param {import('../../user/service/userService')} userService
      * */
-    constructor(uploadMiddleware, userService) {
-        this.ROUTE_BASE = '/user';
+    constructor(rentService, carService, userService) {
+        this.ROUTE_BASE = '/rent';
+        this.rentService = rentService;
+        this.carService = carService;
         this.userService = userService;
-        this.uploadMiddleware = uploadMiddleware;
     }
 
     /**
@@ -17,7 +20,7 @@ module.exports = class UserController {
         app.get(`${this.ROUTE_BASE}/`, this.index.bind(this));
         app.get(`${this.ROUTE_BASE}/add/:id`, this.addForm.bind(this));
         app.get(`${this.ROUTE_BASE}/add`, this.addForm.bind(this));
-        app.post(`${this.ROUTE_BASE}/submit`, this.uploadMiddleware.single('photo'),  this.submit.bind(this));
+        app.post(`${this.ROUTE_BASE}/submit`, this.submit.bind(this));
         app.get(`${this.ROUTE_BASE}/delete/:id`, this.delete.bind(this));
     }
 
@@ -26,8 +29,11 @@ module.exports = class UserController {
      * @param {import('express').Response} res
      * */
     async index(req, res) {
-        const users = await this.userService.getAll();
-        res.render('./user/views/list.njk', {data: { users, route: this.ROUTE_BASE }});
+        const rents = await this.rentService.getAll();
+        rents.forEach(r=> {
+            r.totalPrice = this.rentService.calculateTotalPrice(r);
+        } )
+        res.render('./rent/views/list.njk', {data: { rents, route: this.ROUTE_BASE }});
     }
 
     /**
@@ -35,11 +41,14 @@ module.exports = class UserController {
      * @param {import('express').Response} res
      * */
     async addForm(req, res) {
-        let user = {};
+        let rent = {};
         if(req.params && req.params.id)
-            user = await this.userService.getById(req.params.id)
+            rent = await this.rentService.getById(req.params.id)
 
-        res.render('./user/views/edit_user.njk', {data: {user, route: this.ROUTE_BASE} });
+        const cars = await this.carService.getAll();
+        const users = await this.userService.getAll();
+
+        res.render('./rent/views/edit_rent.njk', {data: {rent, cars, users, route: this.ROUTE_BASE} });
     }
 
     /**
@@ -47,13 +56,9 @@ module.exports = class UserController {
      * @param {import('express').Response} res
      * */
     async submit(req, res) {
-        const user = fromDataToEntity(req.body);
-        if(req.file) {
-            const { path } = req.file;
-            user.photo = path;
-        }
+        const rent = fromFormToEntity(req.body);
 
-        await this.userService.save(user);
+        await this.rentService.save(rent);
 
         res.redirect(this.ROUTE_BASE);
     }
@@ -66,7 +71,7 @@ module.exports = class UserController {
 
         if(req.params && req.params.id) {
             let id = req.params.id;
-            await this.userService.delete({id});
+            await this.rentService.delete({id});
         }
 
         res.redirect(this.ROUTE_BASE);

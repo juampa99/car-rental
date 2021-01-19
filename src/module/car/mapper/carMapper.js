@@ -9,7 +9,9 @@ function fromDataToEntity({
     color,
     air_conditioner,
     passengers,
-    automatic
+    automatic,
+    price_per_day,
+    stock
 }) {
     let autom = automatic && automatic === 'on' ? 'Yes' : 'No';
     let ac = air_conditioner && air_conditioner === 'on' ? 'Yes' : 'No';
@@ -23,7 +25,9 @@ function fromDataToEntity({
         color,
         air_conditioner: ac,
         passengers,
-        automatic: autom
+        automatic: autom,
+        price_per_day,
+        stock
     })
 }
 

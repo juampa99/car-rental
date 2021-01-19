@@ -1,0 +1,42 @@
+{% extends '../../views/index.njk' %}
+
+{% block body %}
+<div class="container div-table-container column">
+    <div class="table-container">
+        <table class="table is-hoverable car-list is-striped">
+            <thead>
+                <tr>
+                    <th class="id_h">ID</th>
+                    <th>Usuario</th>
+                    <th>Auto</th>
+                    <th>Desde</th>
+                    <th>Hasta</th>
+                    <th class="precio_h">Precio total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rent in data.rents %}
+                <tr>
+                    <th class="id_h">{{ rent.id }}</th>
+                    <th><a href="/user/add/{{rent.fk_user}}">{{ rent.user.last_name }}</a></th>
+                    <th><a href="/car/add/{{rent.fk_car}}">{{ rent.car.model }} {{ rent.car.brand }}</a></th>
+                    <th>{{ rent.from_date }}</th>
+                    <th>{{ rent.to_date }}</th>
+                    <th class="precio_h">{{ rent.totalPrice }}</th>
+                    <th id="actions">
+                        <a href="rent/add/{{ rent.id }}" class="icon is-medium">
+                          <i class="fas fa-edit fa-2x"></i>
+                        </a>
+                        <a href="rent/delete/{{ rent.id }}" class="icon is-medium has-text-danger">
+                          <i class="fas fa-ban fa-2x"></i>
+                        </a>
+                    </th>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -22,11 +22,13 @@ module.exports = class CarModel extends Model{
             air_conditioner: STRING,
             passengers: INTEGER,
             automatic: STRING,
-            photo: STRING
+            photo: STRING,
+            price_per_day: INTEGER,
+            stock: INTEGER
         },
         {
             sequelize: sequelizeInstance,
-            modelName: 'Car',
+            modelName: 'car',
             createdAt: 'created_at',
             updatedAt: 'updated_at'
         })

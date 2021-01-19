@@ -4,18 +4,41 @@
 
 <div class="container form-container">
 
-    <form method="POST" action="/user/submit" enctype="application/x-www-form-urlencoded">
-        <input name="id" type="hidden" value="{{data.user.id}}">
+    <form method="POST" action="/user/submit" enctype="multipart/form-data">
+        <input name="id" type="hidden" value="{{data.user.id}}" readonly />
 
-        <div class="container field div-name">
-            <div class="field div-first_name">
+        <div class="field div-photo">
+            <label class="label">Foto</label>
+            {% if data.user.photo %}
+            <div class="photo-div">
+                <img class="photo_img is-1by1" src="/{{ data.user.photo }}"/>
+            </div>
+            {% else %}
+            <img class="photo_img is-1by1" src="https://style.anu.edu.au/_anu/4/images/placeholders/person_8x10.png" width="256" height="256" />
+            {% endif %}
+            <div class="control">
+                <div class="file has-name">
+                    <label class="file-label">
+                        <input class="file-input" type="file" name="photo">
+                        <span class="file-cta">
+                          <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                          </span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="container field div-flex-container">
+            <div class="field full-width">
                 <label class="label">Nombre</label>
                 <div class="control">
                     <input name="first_name" class="input" type="text" value="{{data.user.first_name}}" placeholder="John, Terry, etc...">
                 </div>
             </div>
 
-            <div class="field div-last_name">
+            <div class="field full-width">
                 <label class="label">Apellido</label>
                 <div class="control">
                     <input name="last_name" class="input" type="text" value="{{data.user.last_name}}" placeholder="Doe, Smith, etc...">
@@ -24,41 +47,48 @@
         </div>
 
 
-        <div class="field div-birth_date">
-            <label class="label">Birth Date</label>
-            <div class="control">
-                <input name="birth_date" class="input" type="date" value="{{data.user.birth_date}}">
+        <div class="container field div-flex-container">
+            <div class="container field">
+                <label class="label">Fecha de Nacimiento</label>
+                <div class="control">
+                    <input name="birth_date" class="input birth-date-input" type="date" value="{{data.user.birth_date}}">
+                </div>
             </div>
         </div>
 
-        <div class="field div-country">
-            <label class="label">Country</label>
-            <div class="control">
-                <input name="country" class="input" type="text" value="{{data.user.country}}">
+
+        <div class="field div-flex-container">
+            <div class="container field">
+                <label class="label">Pais</label>
+                <div class="control">
+                    <input name="country" class="input" type="text" value="{{data.user.country}}">
+                </div>
             </div>
         </div>
 
-        <div class="field div-gender">
-            <label class="label">Pasajeros</label>
-            <div class="select">
-                <select name="gender" value="{{data.user.gender}}">
-                    <option value="Female">Female</option>
-                    <option value="Male">Male</option>
-                    <option value="Other">Other</option>
-                </select>
+        <div class="field div-flex-container">
+            <div class="container">
+                <label class="label">Genero</label>
+                <div class="select">
+                    <select name="gender" value="{{data.user.gender}}">
+                        <option value="Female">Mujer</option>
+                        <option value="Male">Hombre</option>
+                        <option value="Other">Otro</option>
+                    </select>
+                </div>
             </div>
-        </div>
 
+            <div class="container">
+                <label class="label">Telefono</label>
+                <div class="control">
+                    <input name="phone_number" class="input" value="{{data.user.phone_number}}" type="text">
+                </div>
+            </div>
+
+        </div>
 
         <div class="field">
-            <label class="label">Phone Number</label>
-            <div class="control">
-                <input name="phone_number" class="input" value="{{data.user.phone_number}}" type="text">
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">ID Number</label>
+            <label class="label">DNI</label>
             <div class="control">
                 <input name="id_number" class="input" value="{{data.user.id_number}}" type="number">
             </div>
@@ -66,10 +96,10 @@
 
         <div class="field is-grouped">
             <div class="control">
-                <input class="button" type="submit" value="Submit"/>
+                <input class="button" type="submit" value="Listo"/>
             </div>
             <div class="control">
-                <button class="button is-link is-light">Cancel</button>
+                <a href="/user" class="button is-link is-light">Cancelar</a>
             </div>
         </div>
     </form>

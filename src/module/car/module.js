@@ -1,3 +1,4 @@
+const Car = require('./entity/car');
 const CarModel = require('./model/carModel');
 const CarService = require('./service/carService');
 const CarRepository = require('./repository/carRepository');
@@ -17,5 +18,6 @@ module.exports = {
     CarController,
     CarRepository,
     CarService,
-    CarModel
+    CarModel,
+    Car
 }

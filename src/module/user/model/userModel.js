@@ -25,7 +25,7 @@ module.exports = class UserModel extends Model{
         },
         {
             sequelize: sequelizeInstance,
-            modelName: 'User',
+            modelName: 'user',
             createdAt: 'created_at',
             updatedAt: 'updated_at'
         })

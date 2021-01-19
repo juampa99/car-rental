@@ -30,6 +30,9 @@ let sampleCar = new Car({
     automatic: false
 })
 
+/**
+ * @type {import('../../entity/car')}
+ * */
 let sampleCar2 = new Car({
     id: null,
     brand: 'Toyota',

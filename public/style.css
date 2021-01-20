@@ -277,3 +277,10 @@ html, body {
     height: 64px;
 }
 
+.my-dropdown {
+    position: absolute;
+    right: 205px;
+    display: none;
+    top: 35px;
+    z-index: 100;
+}

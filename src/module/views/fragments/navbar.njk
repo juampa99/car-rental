@@ -1,7 +1,7 @@
 <nav class="navbar is-black" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" href="./">
-            <h3 class="title is-1" >Car Rental</h3>
+        <a class="navbar-item" href="/">
+            <h4 class="title is-1" >Car Rental</h4>
         </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -10,6 +10,7 @@
             <span aria-hidden="true"></span>
         </a>
     </div>
+
 
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
@@ -27,12 +28,12 @@
 
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
-                    More
+                    Más
                 </a>
 
                 <div class="navbar-dropdown">
                     <a class="navbar-item" target="_blank" href="https://github.com/juampa99">
-                        Github
+                        Mi Github
                     </a>
                 </div>
             </div>
@@ -52,5 +53,29 @@
         </div>
     </div>
 </nav>
+
+<div class="dropdown is-active my-dropdown">
+    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+        <div class="dropdown-content">
+            <a href="{{data.route}}/add" class="dropdown-item">
+                Add
+            </a>
+            <hr class="dropdown-divider">
+            <a href="/car" class="dropdown-item">
+                Autos
+            </a>
+            <a href="/user" class="dropdown-item">
+                Usuarios
+            </a>
+            <a href="/rent" class="dropdown-item">
+                Reservaciones
+            </a>
+            <hr class="dropdown-divider">
+            <a href="https://github.com/juampa99" target="_blank" class="dropdown-item">
+                Mi Github
+            </a>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript" src="/public/js/navbar.js"> </script>

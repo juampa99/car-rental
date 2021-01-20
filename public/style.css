@@ -252,6 +252,8 @@ html, body {
 .div-photo {
     float: lefT;
     padding-right: 10px;
+    max-width: 50%;
+    max-height: 50%;
 }
 
 .birth-date-input {
@@ -263,6 +265,8 @@ html, body {
     background: #eaf1f6;
     box-shadow: inset 9px 9px 18px #b5b5b5,
     inset -9px -9px 18px #ffffff;
+    object-fit: contain;
+    width: 100%;
 }
 
 @media all and (max-width: 1000px) {
@@ -284,3 +288,4 @@ html, body {
     top: 35px;
     z-index: 100;
 }
+

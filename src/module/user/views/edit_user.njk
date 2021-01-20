@@ -11,7 +11,7 @@
             <label class="label">Foto</label>
             {% if data.user.photo %}
             <div class="photo-div">
-                <img class="photo_img is-1by1" src="/{{ data.user.photo }}"/>
+                <img class="photo_img" src="/{{ data.user.photo }}"/>
             </div>
             {% else %}
             <img class="photo_img is-1by1" src="/public/upload/placeholder_photo.png" width="256" height="256" />

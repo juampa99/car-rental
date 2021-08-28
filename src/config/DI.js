@@ -14,13 +14,17 @@ function configureSequelizeDatabase() {
         logging: console.log
     })
 
+    sequelize.query('SELECT * FROM Users').then(function(rows) {
+        console.log(JSON.stringify(rows));
+    });
+
     return sequelize;
 }
 
 function configureMulter() {
     const storage = multer.diskStorage({
             destination(req, file, cb) {
-                cb(null, process.env.PHOTOS_PATH || process.cwd() + '/public/upload/');
+                cb(null, process.env.UPLOAD_PATH || './public/upload/');
             },
             filename(req, file, cb) {
                 // Permite que los archivos se sirvan en el navegador en vez de descargarse automaticamente

@@ -6,6 +6,11 @@
 - [Tecnologias usadas](#tecnologias-usadas)
 - [C4 Model](#c4-model)
 
+## Demo
+<p align="center">
+  <img src="demo/demo.gif" height="80%" width="80%" ></img>
+</p>
+
 ## Requisitos
 - [NodeJS](https://nodejs.org/en/)
 

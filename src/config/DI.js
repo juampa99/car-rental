@@ -10,7 +10,7 @@ const { RentController, RentService, RentModel, RentRepository } = require('../m
 function configureSequelizeDatabase() {
     const sequelize = new Sequelize({
         dialect: 'sqlite',
-        storage: process.env.DB_PATH,
+        storage: process.env.DB_PATH || process.cwd() + '/data/db.db',
         logging: console.log
     })
 
@@ -20,7 +20,7 @@ function configureSequelizeDatabase() {
 function configureMulter() {
     const storage = multer.diskStorage({
             destination(req, file, cb) {
-                cb(null, process.env.PHOTOS_PATH);
+                cb(null, process.env.PHOTOS_PATH || process.cwd() + '/public/upload/');
             },
             filename(req, file, cb) {
                 // Permite que los archivos se sirvan en el navegador en vez de descargarse automaticamente

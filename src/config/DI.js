@@ -14,10 +14,6 @@ function configureSequelizeDatabase() {
         logging: console.log
     })
 
-    sequelize.query('SELECT * FROM Users').then(function(rows) {
-        console.log(JSON.stringify(rows));
-    });
-
     return sequelize;
 }
 

@@ -8,7 +8,6 @@
 
 ## Requisitos
 - [NodeJS](https://nodejs.org/en/)
-- [Sqlite3](https://www.servermania.com/kb/articles/install-sqlite/)
 
 ## Instalacion
 - Descargar repositorio y descomprimir
